@@ -1,0 +1,19 @@
+import unittest
+
+from leafnode import LeafNode
+
+
+class TestLeafNode(unittest.TestCase):
+    def test_leaf_to_html_p(self):
+        node = LeafNode("p", "Hello, world!")
+        self.assertEqual(node.to_html(), "<p>Hello, world!</p>")
+
+    def test_leaf_to_html_p_with_props(self):
+        self.assertEqual(
+            LeafNode("a", "Click me!", {"href": "https://www.google.com"}).to_html(),
+            '<a href="https://www.google.com">Click me!</a>',
+        )
+
+    def test_text_only(self):
+        node = LeafNode(None, "Some Text")
+        self.assertEqual(node.to_html(), "Some Text")
