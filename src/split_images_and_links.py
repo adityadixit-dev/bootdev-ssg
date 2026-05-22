@@ -1,5 +1,5 @@
 from markdown_links import extract_markdown_images, extract_markdown_links
-from src.textnode import TextNode, TextType
+from textnode import TextNode, TextType
 
 
 def split_nodes_link(old_nodes):

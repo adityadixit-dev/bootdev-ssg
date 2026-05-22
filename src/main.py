@@ -1,9 +1,12 @@
-from textnode import TextNode, TextType
+from copy_static import generate_static_folder
+from gen_page import generate_page, generate_pages_recursive
 
 
 def main():
-    textnode = TextNode("Some Text here", TextType.LINK, "https://www.boot.dev")
-    print(textnode)
+    generate_static_folder()
+    generate_pages_recursive("content", "template.html", "public")
+
+    # generate_page("content/index.md", "template.html", "public/index.html")
 
 
 main()
