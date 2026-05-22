@@ -2,17 +2,17 @@ import os
 import shutil
 
 
-def generate_static_folder():
-    if os.path.exists("public"):
-        shutil.rmtree("public")
-    os.mkdir("public")
+def generate_static_folder(build_dir="public"):
+    if os.path.exists(build_dir):
+        shutil.rmtree(build_dir)
+    os.mkdir(build_dir)
 
     STATIC_FOLDER = "static"
 
     if not os.path.exists(STATIC_FOLDER):
         raise Exception("No Static Folder")
 
-    copy_dir_rec(STATIC_FOLDER, "public")
+    copy_dir_rec(STATIC_FOLDER, build_dir)
 
 
 def copy_dir_rec(input_dir, output_dir):
